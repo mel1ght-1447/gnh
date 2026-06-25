@@ -1,0 +1,58 @@
+﻿<Window x:Class="pr8.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr8"
+        mc:Ignorable="d"
+        Title="Настройки системы" Height="450" Width="600"
+        Background="#FF655D90" WindowStartupLocation="CenterOwner">
+    <Grid Margin="10,20,10,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+
+        <!-- Группа: Резервирование -->
+        <GroupBox Grid.Row="0" Header="Резервирование данных" Foreground="White" BorderBrush="#FFFF981A"
+                  Margin="0,0,0,15" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Периодичность:" Foreground="White" Grid.Row="0" Grid.Column="0" Margin="0,5"/>
+                <ComboBox Grid.Row="0" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Height="30" x:Name="cbBackupPeriod">
+                    <ComboBoxItem Content="Ежедневно"/>
+                    <ComboBoxItem Content="Еженедельно"/>
+                    <ComboBoxItem Content="Ежемесячно"/>
+                    <ComboBoxItem Content="Вручную"/>
+                </ComboBox>
+
+                <Label Content="Тип резервирования:" Foreground="White" Grid.Row="1" Grid.Column="0" Margin="0,5"/>
+                <ComboBox Grid.Row="1" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Height="30" x:Name="cbBackupType">
+                    <ComboBoxItem Content="Полное"/>
+                    <ComboBoxItem Content="Инкрементальное"/>
+                </ComboBox>
+
+                <Button Content="Сохранить настройки" Grid.Row="2" Grid.Column="1"
+                        Width="200" Height="35" Background="#FFFF981A" Foreground="White"
+                        HorizontalAlignment="Left" Margin="0,10,0,0"
+                        x:Name="btnSaveBackupSettings" Click="btnSaveBackupSettings_Click"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Применить" Background="#FFFF981A"  Height="35" Foreground="White"
+                    x:Name="btnApplyAll"  Margin="370,19,117,162" RenderTransformOrigin="0.484,1.379" Grid.Row="1"/>
+        <Button x:Name="btnExit" Content="Выйти" Width="94" Height="35" Foreground="White"
+                Background="#FF4E4E" HorizontalAlignment="Left" Margin="481,19,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.927,-1.675"/>
+    </Grid>
+</Window>

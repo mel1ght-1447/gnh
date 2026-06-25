@@ -1,0 +1,38 @@
+﻿<Window x:Class="pr8.AdminPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr8"
+        mc:Ignorable="d"
+        Title="Панель администратора – АИСУ «Гига»" Height="450" Width="800"
+        Background="#FF655D90">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="24"/>
+            <RowDefinition Height="205*"/>
+            <RowDefinition Height="151*"/>
+            <RowDefinition Height="54.041"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Margin="10,10,10,3" Grid.RowSpan="2">
+            <TextBlock Text="Добро пожаловать, Администратор!"
+                       FontSize="24" FontWeight="Bold" Foreground="White"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Menu Grid.Row="0" Background="#FFFF981A">
+            <MenuItem Header="Система">
+                <MenuItem x:Name="ConnectDB" Header="Подключить базу данных"/>
+                <MenuItem x:Name="Exit" Header="Выйти из системы"/>
+            </MenuItem>
+            <MenuItem x:Name="Reports" Header="Отчеты" Click="Reports_Click"/>
+            <MenuItem x:Name="Projects" Header="Проекты" Click="Projects_Click"/>
+            <MenuItem x:Name="Users" Header="Пользователи" Click="Users_Click"/>
+            <MenuItem x:Name="Settings" Header="Настройки системы" Click="Settings_Click"/>
+        </Menu>
+        <Button Content="Закрыть" Grid.Row="3" HorizontalAlignment="Left"
+            Width="89" Background="#FF4E4E" Foreground="White"
+            Margin="693,5,0,5" x:Name="btnClose"/>
+    </Grid>
+</Window>

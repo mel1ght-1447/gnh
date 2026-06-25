@@ -1,0 +1,114 @@
+﻿<Window x:Class="pr8.Manager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr8"
+        mc:Ignorable="d"
+        Title="Менеджер – АИСУ «Гига»" Height="600" Width="850" Background="#FF655D90" BorderBrush="Transparent">
+    <Grid>
+        <TabControl Background="#FF655D90" BorderBrush="Transparent">
+            <TabItem Header="Создать проект" Background="#FFFF981A">
+                <Grid Background="#FF655D90" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Название проекта:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="0" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="tbProjectName"/>
+                    <Label Content="Описание:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="1" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="60" TextWrapping="Wrap" x:Name="tbProjectDesc"/>
+                    <Label Content="Дата начала:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="2" Grid.Column="0" Margin="5"/>
+                    <DatePicker Grid.Row="2" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" x:Name="dpStart"/>
+                    <Label Content="Дата окончания:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="3" Grid.Column="0" Margin="5"/>
+                    <DatePicker Grid.Row="3" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" x:Name="dpEnd"/>
+                    <Label Content="Менеджер:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="4" Grid.Column="0" Margin="5"/>
+                    <ComboBox Grid.Row="4" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="cbManager"/>
+                    <Label Content="Бюджет (руб.):" VerticalContentAlignment="Center" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="5" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="tbBudget"/>
+                    <Button Content="Создать проект" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"
+                            Width="140" Height="35" Background="#FFFF981A" Foreground="White"
+                            Margin="5,10,0,0" x:Name="btnCreateProject" Click="btnCreateProject_Click"/>
+                    <Button Content="Выйти" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"
+                        Width="140" Height="35" Background="#FF4E4E" Foreground="White"
+                        Margin="167,10,0,0" x:Name="btnCreateProject_Копировать" Grid.RowSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Добавить задачи" Background="#FFFF981A">
+                <Grid Background="#FF655D90" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Выберите проект:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                    <ComboBox Grid.Row="0" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="cbProjectForTask"/>
+                    <Label Content="Название задачи:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="1" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="tbTaskName"/>
+                    <Label Content="Описание:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="2" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="2" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="50" TextWrapping="Wrap" x:Name="tbTaskDesc"/>
+                    <Label Content="Исполнитель:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="3" Grid.Column="0" Margin="5"/>
+                    <ComboBox Grid.Row="3" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="cbExecutor"/>
+                    <Label Content="Приоритет:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="4" Grid.Column="0" Margin="5"/>
+                    <ComboBox Grid.Row="4" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" Margin="5" Height="30" x:Name="cbPriority">
+                        <ComboBoxItem Content="Низкий"/>
+                        <ComboBoxItem Content="Средний"/>
+                        <ComboBoxItem Content="Высокий"/>
+                    </ComboBox>
+                    <Label Content="Срок выполнения:" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="5"/>
+                    <DatePicker Grid.Row="5" Grid.Column="1" Margin="5" x:Name="dpTaskDeadline"/>
+                    <Button Content="Добавить задачу" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"
+                            Width="140" Height="35" Background="#FFFF981A" Foreground="White"
+                            Margin="5,10,0,0" x:Name="btnAddTask" Click="btnAddTask_Click"/>
+                    <Button Content="Выйти" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"
+                        Width="120" Height="35" Background="#FF4E4E" Foreground="White"
+                        Margin="162,10,0,0" x:Name="btnExit1" Grid.RowSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Документация" Background="#FFFF981A">
+                <Grid Background="#FF655D90" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="113.055"/>
+                        <ColumnDefinition Width="16.945"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Проект:" VerticalContentAlignment="Center" Foreground="White" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Grid.ColumnSpan="2"/>
+                    <ComboBox Grid.Row="0" VerticalContentAlignment="Center" FontSize="14" Grid.Column="2" Margin="5,5,5,5" Height="30" x:Name="cbProjectDoc"/>
+                    <Button Content="Загрузить файл" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left"
+                            Width="140" Height="35" Background="#FFFF981A" Foreground="White"
+                            Margin="5,21,0,12" x:Name="btnUploadDoc" Click="btnUploadDoc_Click"/>
+                    <Button Content="Выйти" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left"
+                            Width="120" Height="35" Background="#FF4E4E" Foreground="White"
+                            Margin="162,23,0,10" x:Name="btnExit2"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
